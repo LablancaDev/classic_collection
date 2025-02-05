@@ -1,0 +1,189 @@
+
+        ## DESARROLLO DEL PROYECTO FULLSTACK CLASSIC COLLECTION ##
+
+
+    ## FRONTEND
+
+    1. Creación del proyecto con vite en la terminal de powershell:         npm create vite@latest
+
+    2. Instalación del proyecto React con typescript + swc = Compilación más rápida: ideal para proyectos grandes o con múltiples archivos.
+
+    3. Creación y separación de las carpetas Frontend y Backend, se guardan todos los archivos generados por vite del proyecto react en la carpeta Frontend  
+
+    4. Creación de las primeras carpetas de la estrucutra del proyecto dentro de src, components, pages, routes, creación de las rutas 
+
+    5. Instalación de las dependencias del Frontend:
+
+        * Comandos:
+
+            npm install react react-dom react-router-dom redux react-redux @reduxjs/toolkit bootstrap
+            npm install --save-dev @types/react @types/react-dom @types/react-router-dom @types/redux @types/react-redux @types/bootstrap
+
+        * Definición y desglose de cada dependencia que se instala y su propósito::
+
+            ### Dependencias de producción
+
+            Estas son las bibliotecas que usarás en la aplicación para la funcionalidad principal:
+
+            1. **`react`**: La biblioteca principal para crear componentes de interfaz de usuario.
+            
+            2. **`react-dom`**: Facilita el renderizado de componentes de React en el DOM (para aplicaciones web).
+            
+            3. **`react-router-dom`**: Proporciona herramientas para manejar la navegación y el enrutamiento en aplicaciones React.
+            
+            4. **`redux`**: Biblioteca para manejar el estado global de la aplicación.
+
+            5. **`react-redux`**: Integración de React con Redux, lo que permite que los componentes de React interactúen con el estado global de Redux.
+
+            6. **`@reduxjs/toolkit`**: Conjunto de herramientas para simplificar el uso de Redux, con APIs más modernas y recomendadas para la configuración de Redux.
+
+            7. **`bootstrap`**: La biblioteca CSS que proporciona componentes de diseño y estilos para que la aplicación tenga un diseño responsivo y moderno.
+
+            ---
+
+            ### Dependencias de desarrollo
+
+            Estas bibliotecas son sólo para el entorno de desarrollo, principalmente para proporcionar el soporte de **TypeScript** y ayudar con la verificación de tipos:
+
+            1. **`@types/react`**: Tipos de TypeScript para la biblioteca `react`.
+
+            2. **`@types/react-dom`**: Tipos de TypeScript para `react-dom`.
+
+            3. **`@types/react-router-dom`**: Tipos de TypeScript para `react-router-dom`, lo cual permite verificar el enrutamiento de manera segura en TypeScript.
+
+            4. **`@types/redux`**: Tipos de TypeScript para `redux`, que te permite trabajar con Redux en TypeScript y asegurarte de que todas las acciones y estados tengan tipos específicos.
+
+            5. **`@types/react-redux`**: Tipos de TypeScript para `react-redux`, proporcionando tipado para conectar Redux con los componentes de React.
+
+            6. **`@types/bootstrap`**: Tipos de TypeScript para `bootstrap`, lo que ayuda a obtener autocompletado y verificación de tipos para componentes y utilidades de Bootstrap en TypeScript.
+
+            ---
+
+            ### Ejemplo de la estructura de instalación
+
+            # Instalación de las dependencias principales para la aplicación (producción)
+            npm install react react-dom react-router-dom redux react-redux @reduxjs/toolkit bootstrap
+
+            # Instalación de las dependencias de desarrollo para el tipado en TypeScript
+            npm install --save-dev @types/react @types/react-dom @types/react-router-dom @types/redux @types/react-redux @types/bootstrap
+            ```
+
+            Esto organiza todas las dependencias para que tengas el funcionamiento de la app en producción y el tipado necesario en desarrollo para una experiencia óptima con TypeScript.
+
+        *Nota: Para utilizar redux Persist(Por ejemplo para mantener la sesión de usuario iniciada) -> redux-persist 
+
+
+    6.Creación del primer componente NavBar y Login...
+
+    7. * Apartir de aqui ya empiezo a contruir el backend ya que Login ya requiere uso del servidor y una base de datos
+
+     -Inicialización de un proyecto de Node dentro de la carpeta backend: 
+
+        1- npm init -y    (cración del package.json para instalar las dependencias)
+
+        2- Instalación de dependencias:
+                -express: Para crear tu servidor.
+                -cors: Para habilitar CORS, lo que permite que tu frontend se comunique con tu backend.
+                -multer: Para manejar la carga de archivos (imágenes).
+                -mongoose: Para interactuar con MongoDB.         ->IMPORTANTE: Mongoose, una librería de Node.js que facilita la interacción con MongoDB.<-
+                -dotenv: Para manejar variables de entorno.
+                -axios para realizar peticiones asincronas al servidor, también se puede utilizar fetch de forma nativa en React
+
+                Dependencias: npm install express cors multer mongoose dotenv axios
+        
+        3- Configurar TypeScript para Node.js:
+
+            npm install --save-dev typescript @types/node @types/express @types/cors @types/multer
+        
+        4- Crea un archivo de configuración de TypeScript:
+
+            npx tsc --init   (creará el archivo tsconfig.json)
+
+            Ajusta el archivo tsconfig.json para compilar a JavaScript para Node.js. Asegúrate de establecer "target" a "ES6" y "module" a "commonjs".
+
+                    *Opcional:  permite reiniciar el servidor automáticamente con cada cambio
+                        "scripts": {
+                        "build": "tsc",                       // Para compilar el código TypeScript a JavaScript
+                        "start": "node dist/index.js",        // Para correr la aplicación después de compilar
+                ----->  "dev": "ts-node-dev src/index.ts"     // Para desarrollo en modo "hot-reload"
+                        }
+
+
+        5- Creación del servidor express con las rutas dentro de la carpeta src (importante):
+
+            archivos server.ts y routesServer.ts
+
+        6- importante si voy a utilizar el sistema de importación de modulos de javascript ES Modules en el que se usa import definir :
+
+             "type": "module", (en el archivo package.json)
+
+            ya que node.js por defecto utiliza el sistema de modulos commonJs con require        
+
+        7- COMPILACIÓN DEL CÓDIGO TYPESCRIPT A JAVASCRIPT (NODE.JS NECESITA HACER LA CONVERSIÓN YA QUE NO INTERPRETA CODIGO TYPESCRIPT)
+        
+            Importante la estructura de carpetas y archivos para la configuración 
+
+            Ejecutar  (npx tsc) para convertir el código typescript a javascript se creará automáticamente una carpeta llamada dist
+
+            para que no de errores y la carpeta se cree con el código ya convertido a javascript para que node lo entienda hay que mantener la siguinete estructura:
+            
+            server/
+                ├── dist/                   # Carpeta que contendrá el código compilado (generado tras la compilación)
+                ├── node_modules/           # Carpeta de dependencias de Node.js
+                ├── package.json            # Archivo de configuración de npm
+                ├── package-lock.json       # Archivo de bloqueo de versiones de npm
+                ├── tsconfig.json           # Archivo de configuración de TypeScript
+                └── src/                    # Carpeta que contiene el código fuente en TypeScript
+                    ├── server.ts           # Archivo principal del servidor
+                    └── routerServer.ts     # Archivo de rutas del servidor
+
+            Importante también indicar en el archivo tsconfig.json donde se encuentran los archivos con código .ts para poder encontrarlos y convertirlos :
+
+            
+                            {
+                "compilerOptions": {
+                    "target": "ES2016",                               
+                    "module": "ESNext",                               /* Usa ES Modules en lugar de CommonJS */
+                    "moduleResolution": "node",                       /* Usa la resolución de módulos de Node.js */
+                    "esModuleInterop": true,                          /* Facilita la interoperabilidad entre módulos ES y CommonJS */
+                    "forceConsistentCasingInFileNames": true,         /* Asegura que los nombres de archivo sean consistentes en los imports */
+                    "strict": true,                                   /* Habilita las opciones de verificación de tipos estrictas */
+                    "skipLibCheck": true,                             /* Omite la comprobación de tipos en archivos de definición de biblioteca */
+                    "outDir": "./dist",                               /* Especifica la carpeta de salida para los archivos compilados */
+                    "rootDir": "./src"                                /* Especifica la carpeta raíz de los archivos fuente (contiene los archivos .ts)*/
+                },
+                "include": ["src"],                                 /* Incluye la carpeta de código fuente (contiene los archivos .ts)*/
+                "exclude": ["node_modules"]                         /* Excluye la carpeta node_modules */
+                }   
+
+        8- Arranque del servidor    
+
+            node dist/server.js   (ejecutar en ruta server)
+
+        9- MUY IMPORTANTE todos los archivos del backend que contengan código .ts es decir, carpeta de controllers y models tiene que ir dentro de src que es la ubicación dada en la configuración    
+
+            Una vez avanza el proceso de login para registrar un usuario y tenemos los archivos controller y model del login hace falta una base de datos 
+
+        10- Vamos a usar MongoDB Atlas para la base de datos en la nube y Mongoose como ODM (Object Data Modeling) para interactuar con MongoDB desde tu aplicación de Node.js.
+
+        instalación: npm install mongoose
+
+
+        11- En este proyecto utilizaré redux-persist para mantener las sesiones iniciadas y datos consistentes como la foto de login y el nombre:
+
+            Instalación de redux-persist:  
+
+            Instalación de tipos para redux-persist: npm install --save-dev @types/redux-persist (en caso de usar typescript)
+
+        *Nota para que carguen las imágenes correctamente definir la ruta adecuada en routesServer.ts: (solo funciona si la carpeta la creamos dentro de dist)
+            dist en donde se almacena el código compilado de ts a js para que node.js pueda entenderlo y ejecutarlo
+            
+            // Configuración de almacenamiento para multer
+            const storage = multer.diskStorage({
+                destination: path.join(__dirname, '../dist/uploads'), // Guardar imágenes en "uploads"
+                filename: (req, file, cb) => {
+                    cb(null, `${Date.now()}-${file.originalname}`); // Nombre único para cada archivo
+                },
+            });    
+
+    8.        

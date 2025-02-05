@@ -1,0 +1,153 @@
+/* general styles */
+a {
+    text-decoration: none;
+}
+/* body{
+margin-top: 12em;
+} */
+
+button, a {
+    cursor: pointer;
+}
+/* home */
+
+
+/* navBar */
+
+.navbar{
+    /* background: linear-gradient(rgb(31, 0, 51), rgb(52, 0, 87),rgb(84, 41, 112)); */
+    /* background-color: rgba(12, 0, 22, 0.822); */
+}
+
+.text-nav {
+    z-index: 1;
+}
+
+/* Cambia el color cuando el ratón esté sobre el enlace */
+.nav-link.custom-link:hover {
+  color: rgb(255, 166, 33) !important; /* Cambia a rojo al pasar el ratón */
+  /* text-decoration: underline;  */
+}
+
+/* Cambia el color al hacer clic */
+/* .nav-link.custom-link:active {
+  color: green !important; 
+} */
+
+/* Color inicial */
+.nav-link.custom-link {
+  color: white !important; /* Color blanco predeterminado */
+  transition: color 0.3s ease-in-out; /* Transición suave para el cambio de color */
+}
+
+
+.logoNav {
+  max-width: 10em;
+}
+
+.title {
+  max-width: 10em;
+  background: linear-gradient(to right, 
+    #ebd7a5, #ee9b01, #ca6702, #bb3f03, #b8362a, #9b2227,
+    #005f73, #099396, #4bb390, #94d2bd, #bfd8d0
+  );
+  -webkit-background-clip: text; /* Hace que el fondo solo se aplique al texto */
+  -webkit-text-fill-color: transparent; /* Hace el fondo visible en el texto */
+  background-clip: text; /* Soporte estándar */
+  text-fill-color: transparent; /* Soporte estándar */
+  font-weight: bold; /* Opcional: Hace que el texto resalte más */
+  font-size: 2rem; /* Ajusta el tamaño del texto */
+  text-align: center; /* Centra el texto */
+}
+
+
+
+/* login */
+
+.login {
+    background-color: rgba(0, 0, 0, 0.568);
+ 
+}
+
+/* Menu */
+/* Estilos generales para el menú */
+.menu-container {
+    max-width: 250px;
+  }
+  
+  /* Estilos para los elementos de la lista en el menú desplegable */
+  .dropdown-item-container {
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-item {
+    padding: 12px; /* Espacio alrededor del logo */
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+  }
+  
+  /* Efecto hover para los items del menú */
+  .dropdown-item:hover {  
+    background-color: #adadad !important; /* Fondo más oscuro al hacer hover */
+    transform: scale(1.05); /* Efecto de agrandamiento leve */
+  }
+  
+  /* Estilo para los íconos de las plataformas para que ocupen el espacio completo */
+  .platform-icon {
+    width: 100px;
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+  
+  /* Estilo para los botones debajo del menú desplegable */
+  .button-group .btn {
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Efecto hover para los botones */
+  .button-group .btn:hover {
+    background-color: #333;
+    color: #e2e2e2;
+  }
+  
+/* Display */
+
+/* Display.css */
+
+.container {
+  max-width: 1200px;
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen ocupe todo el espacio sin distorsión */
+  object-position: center;
+  transition: transform 0.3s ease; /* Agrega un suave efecto al pasar el mouse */
+}
+
+.cover-image:hover {
+  transform: scale(1.05); /* Zoom ligero al pasar el mouse */
+}
+
+.card-body {
+  padding: 10px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-game{
+  cursor: pointer;
+}
