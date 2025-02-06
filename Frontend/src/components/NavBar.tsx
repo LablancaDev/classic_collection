@@ -18,7 +18,7 @@ const NavBar = () => {
 
     // const user_id = useSelector((state: RootState) => state.auth.user_id)
 
-    const handleLogout = () => {
+    const handleLogout = () => {  
         dispatch(logoutUser());
         navigate('login');
     }

@@ -3,6 +3,10 @@ import mongoose, { Schema, Document } from "mongoose";
 // Interfaz para los juegos dentro de la colección del usuario
 interface IGame {
   name: string;
+  coverUrl?: string;  // URL de la portada del juego 
+  platform: string;   // Plataforma del juego 
+  description?: string; // Descripción del juego 
+  rating?: number;  // Puntuación del juego 
   dateAdded: Date;
 }
 
@@ -22,7 +26,11 @@ const userSchema = new mongoose.Schema<IUser>({
   myCollection: [
     {
       name: { type: String, required: true },
-      dateAdded: { type: Date, default: Date.now },
+      coverUrl: { type: String }, 
+      platform: { type: String, required: true },  
+      description: { type: String },  
+      rating: { type: Number },  
+      dateAdded: { type: Date, default: Date.now },  
     },
   ],
 });
@@ -31,3 +39,6 @@ const userSchema = new mongoose.Schema<IUser>({
 const User = mongoose.model<IUser>("User", userSchema);
 
 export default User;
+
+/*El modelo User tiene un array llamado myCollection que contiene objetos con los juegos agregados por el usuario, 
+cada uno con su nombre y la fecha en que se añadió.*/ 

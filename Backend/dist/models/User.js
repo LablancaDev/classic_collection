@@ -7,6 +7,10 @@ const userSchema = new mongoose.Schema({
     myCollection: [
         {
             name: { type: String, required: true },
+            coverUrl: { type: String },
+            platform: { type: String, required: true },
+            description: { type: String },
+            rating: { type: Number },
             dateAdded: { type: Date, default: Date.now },
         },
     ],
@@ -14,3 +18,5 @@ const userSchema = new mongoose.Schema({
 // Modelo
 const User = mongoose.model("User", userSchema);
 export default User;
+/*El modelo User tiene un array llamado myCollection que contiene objetos con los juegos agregados por el usuario,
+cada uno con su nombre y la fecha en que se añadió.*/

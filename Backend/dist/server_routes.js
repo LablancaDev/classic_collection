@@ -2,7 +2,7 @@ import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { getDataGames } from './controllers/apiController.js';
-import { addSelectGame } from './controllers/myCollectionController.js';
+import { addSelectGame, getDataCollection } from './controllers/myCollectionController.js';
 import { loginDataUser, registerDataUser } from './controllers/userController.js';
 // Simulación de __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -24,4 +24,6 @@ router.post('/userRegister', registerDataUser);
 router.post('/userLogin', loginDataUser);
 // * Ruta para almacenar los nombres de los videojuegos seleccionados para la colección
 router.post('/selectGame', addSelectGame);
+// * Ruta para recuperar los juegos de la colección de cada usuario
+router.get('/myCollection', getDataCollection);
 export default router;

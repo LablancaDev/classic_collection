@@ -95,7 +95,7 @@ export async function fetchGameCovers(platform?: string): Promise<Game[]> {
         'Authorization': `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
       },
-      body: `fields name, cover.url, platforms.name; limit 300; ${platformFilter}`,
+      body: `fields name, cover.url, platforms.name, rating, summary; limit 300; ${platformFilter}`,
     });
 
     // Comprobación de la respuesta de la API

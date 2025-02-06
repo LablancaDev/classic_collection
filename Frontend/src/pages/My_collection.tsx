@@ -7,13 +7,22 @@ import ps2 from '../assets/imgs/control_ps2.jpeg'
 📌 Relación entre los componentes (My_collection.tsx, Menu.tsx y Display.tsx)
 
 El componente PADRE es My_collection.tsx, ya que es el que administra el estado selectedPlatform y se lo pasa 
-como prop tanto a Menu.tsx como a Display.tsx.*/ 
+como prop tanto a Menu.tsx como a Display.tsx.*/
 
 const My_collection = () => {
 
     // permite actualizar el estado cuando el usuario selecciona una plataforma en Menu.tsx.
     const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
-    
+
+    // Agregaremos un nuevo estado viewCollection para controlar si se muestra la colección del usuario.
+    const [viewCollection, setViewCollection] = useState<boolean>(false);
+
+    // Función para activar la vista de la colección
+    const handleViewCollection = () => {
+        setSelectedPlatform(null); // Para asegurarnos de que no hay filtro por plataforma
+        setViewCollection(true);
+    };
+
     return (
         <>
             <div className='container-fluid My_colection d-flex justify-content-center align-items-center' style={{
@@ -33,18 +42,18 @@ const My_collection = () => {
                     borderRadius: '15px',
                     backgroundColor: 'rgba(255, 255, 255, 0.2)', // Color de fondo con transparencia
                     zIndex: 2, // Para estar encima del overlay
-                    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)', 
+                    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
                 }}>
                     <div className="row">
                         <div className='col-md-3 card p-2 me-4 container-menu' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
-                             {/* Se renderiza el componente Menu y se le pasa la función setSelectedPlatform como prop */}
-                            <Menu onSelectPlatform={setSelectedPlatform}/>
+                            {/* Se renderiza el componente Menu y se le pasa la función setSelectedPlatform como prop */}
+                            <Menu onSelectPlatform={setSelectedPlatform}   onViewCollection={handleViewCollection}/>
                         </div>
                         <div className='col-md-8 card p-2' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
                             {/* Se renderiza el componente Display y se le pasa selectedPlatform como prop */}
-                            <Display selectedPlatform={selectedPlatform}/>
+                            <Display selectedPlatform={selectedPlatform}  viewCollection={viewCollection} />
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -73,7 +82,7 @@ Display.tsx muestra los juegos de la colección personal del usuario.
 1️⃣ My_collection.tsx es el componente padre que maneja el estado selectedPlatform.
 2️⃣ Menu.tsx permite seleccionar la plataforma y actualizar el estado en My_collection.tsx.
 3️⃣ Display.tsx recibe selectedPlatform y muestra los juegos filtrados o la colección del usuario.
-4️⃣ El fondo cambia dinámicamente en My_collection.tsx según la plataforma seleccionada.*/ 
+4️⃣ El fondo cambia dinámicamente en My_collection.tsx según la plataforma seleccionada.*/
 
 
 

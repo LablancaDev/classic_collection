@@ -7,10 +7,11 @@ import ps from '../assets/imgs/PlayStation.png';
 // Definimos las propiedades esperadas en el componente Menu
 interface MenuProps {
   onSelectPlatform: (platform: string | null) => void;
+  onViewCollection: () => void; // Nueva prop para ver la colección mediante el botón del menu
 }
 
 // Componente funcional que recibe la función `onSelectPlatform` como prop, recupera la plataforma seleccionada, para usarla en el componente Display.tsx
-const Menu: React.FC<MenuProps> = ({ onSelectPlatform }) => {
+const Menu: React.FC<MenuProps> = ({ onSelectPlatform, onViewCollection  }) => {
 
 
   return (
@@ -125,7 +126,8 @@ const Menu: React.FC<MenuProps> = ({ onSelectPlatform }) => {
             </li>
           </ul>
         </div>
-        <button className="btn btn-dark mt-2">Mi Colección</button>
+        {/* onViewCollection: se activa desde el botón del componente menú la vista de la colección   */}
+        <button className="btn btn-dark mt-2" onClick={onViewCollection}>Mi Colección</button>
         <button className="btn btn-dark mt-2">Añadir nuevo juego</button>
         <button className="btn btn-dark mt-2">Juegos deseados</button>
       </div>
