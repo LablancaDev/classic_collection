@@ -72,6 +72,11 @@
 
         *Nota: Para utilizar redux Persist(Por ejemplo para mantener la sesión de usuario iniciada) -> redux-persist 
 
+        *Paquetes utilizados en la WEB:
+            -React-toastifyes un paquete NPM que te permite añadir notificaciones emergentes personalizables a tus aplicaciones React con una configuración mínima.
+                .npm install react-toastify
+
+
 
     6.Creación del primer componente NavBar y Login...
 

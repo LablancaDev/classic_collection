@@ -5,7 +5,7 @@ interface IGame {
   name: string;
   coverUrl?: string;  // URL de la portada del juego 
   platform: string;   // Plataforma del juego 
-  description?: string; // Descripción del juego 
+  summary?: string; // Descripción del juego 
   rating?: number;  // Puntuación del juego 
   dateAdded: Date;
 }
@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema<IUser>({
       name: { type: String, required: true },
       coverUrl: { type: String }, 
       platform: { type: String, required: true },  
-      description: { type: String },  
+      summary: { type: String },  
       rating: { type: Number },  
       dateAdded: { type: Date, default: Date.now },  
     },

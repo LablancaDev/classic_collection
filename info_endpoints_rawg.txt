@@ -1,0 +1,137 @@
+La API de RAWG ofrece una amplia variedad de endpoints que te permiten acceder a información detallada sobre 
+videojuegos, desarrolladores, plataformas y más. A continuación, se presentan algunos de los endpoints más relevantes:
+
+### **1. Juegos**
+
+- **Lista de juegos:**
+  - **Endpoint:** `GET /games`
+  - **Descripción:** Obtiene una lista de juegos disponibles en la base de datos.
+  - **Ejemplo de uso:**
+    ```javascript
+    const apiKey = 'TU_API_KEY';
+    fetch(`https://api.rawg.io/api/games?key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    ```
+  - **Referencia:** citeturn0search1
+
+- **Detalles de un juego específico:**
+  - **Endpoint:** `GET /games/{id}`
+  - **Descripción:** Obtiene información detallada de un juego específico mediante su ID.
+  - **Ejemplo de uso:**
+    ```javascript
+    const apiKey = 'TU_API_KEY';
+    const gameId = '3498'; // Reemplaza con el ID del juego deseado
+    fetch(`https://api.rawg.io/api/games/${gameId}?key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    ```
+  - **Referencia:** citeturn0search1
+
+### **2. Plataformas**
+
+- **Lista de plataformas:**
+  - **Endpoint:** `GET /platforms`
+  - **Descripción:** Recupera una lista de plataformas de videojuegos.
+  - **Ejemplo de uso:**
+    ```javascript
+    const apiKey = 'TU_API_KEY';
+    fetch(`https://api.rawg.io/api/platforms?key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    ```
+  - **Referencia:** citeturn0search1
+
+### **3. Géneros**
+
+- **Lista de géneros:**
+  - **Endpoint:** `GET /genres`
+  - **Descripción:** Obtiene una lista de géneros de videojuegos.
+  - **Ejemplo de uso:**
+    ```javascript
+    const apiKey = 'TU_API_KEY';
+    fetch(`https://api.rawg.io/api/genres?key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    ```
+  - **Referencia:** citeturn0search1
+
+### **4. Desarrolladores**
+
+- **Lista de desarrolladores:**
+  - **Endpoint:** `GET /developers`
+  - **Descripción:** Recupera una lista de desarrolladores de videojuegos.
+  - **Ejemplo de uso:**
+    ```javascript
+    const apiKey = 'TU_API_KEY';
+    fetch(`https://api.rawg.io/api/developers?key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    ```
+  - **Referencia:** citeturn0search1
+
+### **5. Publishers**
+
+- **Lista de publishers:**
+  - **Endpoint:** `GET /publishers`
+  - **Descripción:** Obtiene una lista de publishers de videojuegos.
+  - **Ejemplo de uso:**
+    ```javascript
+    const apiKey = 'TU_API_KEY';
+    fetch(`https://api.rawg.io/api/publishers?key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    ```
+  - **Referencia:** citeturn0search1
+
+### **6. Capturas de pantalla**
+
+- **Capturas de pantalla de un juego:**
+  - **Endpoint:** `GET /games/{id}/screenshots`
+  - **Descripción:** Recupera las capturas de pantalla de un juego específico mediante su ID.
+  - **Ejemplo de uso:**
+    ```javascript
+    const apiKey = 'TU_API_KEY';
+    const gameId = '3498'; // Reemplaza con el ID del juego deseado
+    fetch(`https://api.rawg.io/api/games/${gameId}/screenshots?key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    ```
+  - **Referencia:** citeturn0search1
+
+### **7. Tiendas**
+
+- **Lista de tiendas:**
+  - **Endpoint:** `GET /stores`
+  - **Descripción:** Obtiene una lista de tiendas donde se pueden adquirir videojuegos.
+  - **Ejemplo de uso:**
+    ```javascript
+    const apiKey = 'TU_API_KEY';
+    fetch(`https://api.rawg.io/api/stores?key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    ```
+  - **Referencia:** citeturn0search1
+
+### **8. Series de juegos**
+
+- **Lista de series de juegos:**
+  - **Endpoint:** `GET /game-series`
+  - **Descripción:** Recupera una lista de series de videojuegos.
+  - **Ejemplo de uso:**
+    ```javascript
+    const apiKey = 'TU_API_KEY';
+    fetch(`https://api.rawg.io/api/game-series?key=${apiKey}`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    ```
+  

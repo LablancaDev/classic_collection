@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 import { logoutUser } from '../redux/authSlice'
 import { useDispatch } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const NavBar = () => {
@@ -20,6 +22,7 @@ const NavBar = () => {
 
     const handleLogout = () => {  
         dispatch(logoutUser());
+        toast.info("🔒 Sesión cerrada", { position: "top-right", autoClose: 3000 });
         navigate('login');
     }
 
@@ -62,10 +65,16 @@ const NavBar = () => {
                                 <a className="nav-link custom-link" aria-current="page" href="#">Home</a>
                             </Link>
                             <Link to={"Mycollection"}>
-                                <a className="nav-link custom-link" href="#">My Collection</a>
+                                <a className="nav-link custom-link" href="#">Mi Colección</a>
                             </Link>
                             <Link to={'/games'}>
-                                <a className="nav-link custom-link" href="#">Games</a>
+                                <a className="nav-link custom-link" href="#">Juegos</a>
+                            </Link>
+                            <Link to={'/noticias'}>
+                                <a className="nav-link custom-link" href="#">Noticias</a>
+                            </Link>
+                            <Link to={'/portadasbuenas'}>
+                                <a className="nav-link custom-link" href="#">Portadas Buenas</a>
                             </Link>
                             <Link to={"/login"}>
                                 <a className="nav-link custom-link" aria-disabled="true">Login</a>

@@ -57,7 +57,7 @@ async function getAccessToken(): Promise<string> {
 
     // Verificar si la respuesta fue exitosa
     if (!response.ok) {
-      throw new Error(`Failed to get access token: ${response.statusText}`);
+      throw new Error(`Failed to get access token: ${response.statusText}`);  
     }
 
     const data = (await response.json()) as AccessTokenResponse;

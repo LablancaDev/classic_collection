@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
             name: { type: String, required: true },
             coverUrl: { type: String },
             platform: { type: String, required: true },
-            description: { type: String },
+            summary: { type: String },
             rating: { type: Number },
             dateAdded: { type: Date, default: Date.now },
         },

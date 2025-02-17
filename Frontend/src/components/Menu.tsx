@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
+
+import superNintendo from '../assets/imgs/Logo_SNES.png';
 import nintendo from '../assets/imgs/Nintendo.png';
+import wii from '../assets/imgs/1200px-Wii_logo.png';
 import sega from '../assets/imgs/SEGA_logo.png';
+import megadrive from '../assets/imgs/megadrive.svg';
+import segaSaturn from '../assets/imgs/Sega_Saturn_USA_logo.svg.png';
+import xbox360 from '../assets/imgs/xbox360.png';
+import playstation from '../assets/imgs/PlayStation.png';
+import playstation2 from '../assets/imgs/PlayStation2.png';
+import playstation3 from '../assets/imgs/ps3-logo.png';
+import playstation4 from '../assets/imgs/ps4-logo.webp';
+import playstation5 from '../assets/imgs/ps5-logo.png';
 import xbox from '../assets/imgs/microsoft-xbox.png';
 import ps from '../assets/imgs/PlayStation.png';
 
@@ -11,14 +22,14 @@ interface MenuProps {
 }
 
 // Componente funcional que recibe la función `onSelectPlatform` como prop, recupera la plataforma seleccionada, para usarla en el componente Display.tsx
-const Menu: React.FC<MenuProps> = ({ onSelectPlatform, onViewCollection  }) => {
+const Menu: React.FC<MenuProps> = ({ onSelectPlatform, onViewCollection }) => {
 
 
   return (
     <div className="container-fluid menu-container" style={{ minHeight: '100vh' }}>
       <div className="dropdown mb-3" >
         <button
-          className="btn btn-dark dropdown-toggle w-100"
+          className="btn btn-lg btn-dark dropdown-toggle w-100"
           type="button"
           id="dropdownMenuButton"
           data-bs-toggle="dropdown"
@@ -32,12 +43,12 @@ const Menu: React.FC<MenuProps> = ({ onSelectPlatform, onViewCollection  }) => {
           style={{ minWidth: "100%" }}
         >
           <li className="dropdown-item-container">
-            <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('Nintendo')} href="#">
+            <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('Nintendo Entertainment System')} href="#">
               <img className="platform-icon" src={nintendo} alt="Nintendo" />
             </a>
           </li>
           <li className="dropdown-item-container">
-            <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('SEGA')} href="#">
+            <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('Sega Mega Drive/Genesis')} href="#">
               <img className="platform-icon" src={sega} alt="SEGA" />
             </a>
           </li>
@@ -66,7 +77,7 @@ const Menu: React.FC<MenuProps> = ({ onSelectPlatform, onViewCollection  }) => {
       <div className="d-flex flex-column button-group">
         <div className="dropdown mb-3" >
           <button
-            className="btn btn-dark dropdown-toggle w-100"
+            className="btn btn-lg btn-dark dropdown-toggle w-100"
             type="button"
             id="dropdownMenuButton"
             data-bs-toggle="dropdown"
@@ -80,56 +91,67 @@ const Menu: React.FC<MenuProps> = ({ onSelectPlatform, onViewCollection  }) => {
             style={{ minWidth: "100%" }}
           >
             <li className="dropdown-item-container">
-              <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('Nintendo Nes')} href="#">
-                {/* <img className="platform-icon" src={nintendo} alt="Nintendo" /> */} Nintendo Nes
+              <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('Nintendo Entertainment System')} href="#">
+                <img className="platform-icon w-75" src={nintendo} alt="Nintendo" />
               </a>
             </li>
             <li className="dropdown-item-container">
               <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('Super Nintendo Entertainment System')} href="#">
-                {/* <img className="platform-icon" src={sega} alt="SEGA" /> */} Super Nintendo 
+                <img className="platform-icon w-75" src={superNintendo} alt="superNintendo" />
               </a>
             </li>
             <li className="dropdown-item-container">
               <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('Wii')} href="#">
-                {/* <img className="platform-icon" src={sega} alt="SEGA" /> */} Wii 
+                <img className="platform-icon " src={wii} alt="wii" />
               </a>
             </li>
             <li className="dropdown-item-container">
               <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('Sega Mega Drive/Genesis')} href="#">
-                {/* <img className="platform-icon" src={sega} alt="SEGA" /> */} Sega Mega Drive  
+                <img className="platform-icon w-100" src={megadrive} alt="megadrive" />
               </a>
             </li>
             <li className="dropdown-item-container">
               <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('Sega Saturn')} href="#">
-                {/* <img className="platform-icon" src={sega} alt="SEGA" /> */} Sega Saturn  
+                <img className="platform-icon w-100" src={segaSaturn} alt="segaSaturn" />
+              </a>
+            </li>
+            <li className="dropdown-item-container">
+              <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('xbox 360')} href="#">
+                <img className="platform-icon w-50" src={xbox360} alt="xbox360" />
+              </a>
+            </li>
+            <li className="dropdown-item-container">
+              <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('PlayStation')} href="#">
+                <img className="platform-icon w-50" src={playstation} alt="playstation" />
               </a>
             </li>
             <li className="dropdown-item-container">
               <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('PlayStation 2')} href="#">
-                {/* <img className="platform-icon" src={sega} alt="SEGA" /> */} PlayStation 2  
+                <img className="platform-icon w-75" src={playstation2} alt="playstation2" />
               </a>
             </li>
             <li className="dropdown-item-container">
               <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('PlayStation 3')} href="#">
-                {/* <img className="platform-icon" src={sega} alt="SEGA" /> */} PlayStation 3 
+                <img className="platform-icon" src={playstation3} alt="playstation3" />
               </a>
             </li>
             <li className="dropdown-item-container">
               <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('PlayStation 4')} href="#">
-                {/* <img className="platform-icon" src={sega} alt="SEGA" /> */} PlayStation 4  
+                <img className="platform-icon" src={playstation4} alt="playstation4" />
               </a>
             </li>
             <li className="dropdown-item-container">
               <a className="dropdown-item d-flex justify-content-center" onClick={() => onSelectPlatform('PlayStation 5')} href="#">
-                {/* <img className="platform-icon" src={sega} alt="SEGA" /> */} PlayStation 5 
+                <img className="platform-icon" src={playstation5} alt="playstation5" />
               </a>
             </li>
           </ul>
         </div>
         {/* onViewCollection: se activa desde el botón del componente menú la vista de la colección   */}
-        <button className="btn btn-dark mt-2" onClick={onViewCollection}>Mi Colección</button>
-        <button className="btn btn-dark mt-2">Añadir nuevo juego</button>
-        <button className="btn btn-dark mt-2">Juegos deseados</button>
+        <button className="btn btn-lg btn-dark mt-2" onClick={onViewCollection}>Mi Colección</button>
+        <button className="btn btn-lg btn-dark mt-2">Mis Consolas</button>
+        <button className="btn btn-lg btn-dark mt-2">Añadir nuevo juego</button>
+        <button className="btn btn-lg btn-dark mt-2">Juegos deseados</button>
       </div>
     </div>
   );
